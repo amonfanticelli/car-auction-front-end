@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../context/Context";
 import { Button } from "../Button";
 import { ButtonsForAnnouncer, Container, NameIcon, SpanInfo } from "./style";
-
+import { IAnnouncement } from "../../interfaces/context";
 export interface ICard {
   image: string;
   title: string;
@@ -23,11 +23,11 @@ function generateColor() {
   return color;
 }
 
-export const Card = ({ item }) => {
+export const Card = ({ item }: any) => {
   const { setAnnouncementId, setShowEditAnnouncementModal, announcer } =
     useContext(Context);
 
-  console.log(announcer)
+  console.log(announcer);
 
   const userLogged = JSON.parse(localStorage.getItem("@user")!);
 
@@ -59,9 +59,11 @@ export const Card = ({ item }) => {
             className="container-nameIcon-icon text-body-2-400"
             backgroundColor={generateColor()}
           >
-            {announcer?.name?.split(" ")
-                 .map((name: string, index: number) =>
-                   index <= 1 ? name[0].toUpperCase() : undefined)}
+            {announcer?.name
+              ?.split(" ")
+              .map((name: string, index: number) =>
+                index <= 1 ? name[0].toUpperCase() : undefined
+              )}
           </NameIcon>
           {announcer.name}
         </div>
@@ -74,10 +76,12 @@ export const Card = ({ item }) => {
           <span className="text-body-2-500">{item.km} km</span>
           <span className="text-body-2-500">{item.year}</span>
         </SpanInfo>
-        <p className="text-body-1-400">{new Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(item.price)}</p>
+        <p className="text-body-1-400">
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(item.price)}
+        </p>
       </div>
 
       {userLogged?.id == params.id && (

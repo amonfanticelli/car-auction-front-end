@@ -1,6 +1,10 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { AnnouncerPageStyle, AnnouncerPageWithoutTokenStyle, NameIconAnnouncer } from "./style";
+import {
+  AnnouncerPageStyle,
+  AnnouncerPageWithoutTokenStyle,
+  NameIconAnnouncer,
+} from "./style";
 import { Button } from "../../components/Button";
 import { cardsAnnouncerPage } from "../../components/CardAuction/database";
 import { v4 as uuid } from "uuid";
@@ -42,9 +46,9 @@ export const AnnouncerPage = () => {
   const token = localStorage.getItem("@token");
 
   useEffect(() => {
-    retrieveAnnouncer(params.id!)
+    retrieveAnnouncer(params.id!);
   }, []);
-  
+
   const { user } = useContext(AuthContext);
 
   return token && announcer.id == user?.id ? (
@@ -72,11 +76,12 @@ export const AnnouncerPage = () => {
           <div className="background-announcer" />
 
           <div className="information-announcer">
-            <NameIconAnnouncer >
-              {announcer?.name?.split(" ")
+            <NameIconAnnouncer>
+              {announcer?.name
+                ?.split(" ")
                 .map((name, index) =>
                   index <= 1 ? name[0].toUpperCase() : undefined
-              )}
+                )}
             </NameIconAnnouncer>
 
             <div className="name-announcer">
@@ -155,12 +160,12 @@ export const AnnouncerPage = () => {
           <div className="background-announcer" />
 
           <div className="information-announcer">
-            <NameIconAnnouncer >
-              {
-                announcer?.name?.split(" ")
-                 .map((name, index) =>
-                   index <= 1 ? name[0].toUpperCase() : undefined)
-              }
+            <NameIconAnnouncer>
+              {announcer?.name
+                ?.split(" ")
+                .map((name, index) =>
+                  index <= 1 ? name[0].toUpperCase() : undefined
+                )}
             </NameIconAnnouncer>
 
             <div className="name-announcer">

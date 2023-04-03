@@ -17,10 +17,6 @@ import { CardComments } from "../../components/CardComments";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { api } from "../../service/api";
-import { IComment } from "../../interfaces/components";
-import { IAnnouncementResponse } from "../../interfaces/context";
-import { IAnnouncement } from "../../interfaces/context";
 import { Button } from "../../components/Button";
 import { toast } from "react-hot-toast";
 import { ModalImageCar } from "../../components/ModalImageCar";
@@ -208,15 +204,13 @@ export const Annoucement = () => {
                 placeholder="Carro muito confortável, foi uma ótima experiência de compra..."
               ></textarea>
               <button
-              
-                onClick={() =>{
+                onClick={() => {
                   if (textAreaRef.current.value == "") {
                     toast.error("Digite um comentário!");
                   } else {
-                    createComment(textAreaRef.current.value, params.id!)
+                    createComment(textAreaRef.current.value, params.id!);
                   }
-                }
-                }
+                }}
               >
                 Comentar
               </button>

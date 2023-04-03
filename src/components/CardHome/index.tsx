@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import { IAnnouncementResponse } from "../../interfaces/context";
 import { Container, NameIcon, SpanInfo } from "./style";
 
-
 export interface IProps {
-  item: IAnnouncementResponse
+  item: IAnnouncementResponse;
 }
 
 function generateColor() {
@@ -16,9 +15,7 @@ function generateColor() {
   return color;
 }
 
-export const CardHome = ( { item }) => {
-
-  console.log(item)
+export const CardHome = ({ item }: any) => {
   return (
     <Container>
       <Link to={`/announcement/${item.id}`}>
@@ -28,7 +25,9 @@ export const CardHome = ( { item }) => {
 
         <h5>{item.title}</h5>
 
-        <p className="container-description text-body-2-400">{item.description}</p>
+        <p className="container-description text-body-2-400">
+          {item.description}
+        </p>
 
         <div className="container-name text-body-1-400">
           <NameIcon
@@ -37,9 +36,9 @@ export const CardHome = ( { item }) => {
           >
             {item.user.name
               .split(" ")
-              .map((name: any, index:number) =>
+              .map((name: any, index: number) =>
                 index <= 1 ? name[0].toUpperCase() : undefined
-            )}
+              )}
           </NameIcon>
           {item.user.name}
         </div>
@@ -49,10 +48,12 @@ export const CardHome = ( { item }) => {
             <span className="text-body-2-500">{item.km} km</span>
             <span className="text-body-2-500">{item.year}</span>
           </SpanInfo>
-          <p className="text-body-1-400">{new Intl.NumberFormat("pt-BR", {
+          <p className="text-body-1-400">
+            {new Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
-            }).format(item.price)}</p>
+            }).format(item.price)}
+          </p>
         </div>
       </Link>
     </Container>

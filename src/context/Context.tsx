@@ -27,7 +27,7 @@ export const Provider = ({ children }: IProvider) => {
       .catch((error) => console.log(error));
   }, []);
 
-  const { setUser, user } = useContext(AuthContext)
+  const { setUser, user } = useContext(AuthContext);
 
   const token = localStorage.getItem("@token");
 
@@ -87,7 +87,7 @@ export const Provider = ({ children }: IProvider) => {
       .then((res) => {
         setShowAddAnnouncementModal(false);
         setShowModalAddAnnouncementSuccess(true);
-        retrieveAnnouncer(user?.id!)
+        retrieveAnnouncer(user?.id!);
       })
       .catch((error) => toast.error(`${error.response.data.message}`));
   };
@@ -109,7 +109,7 @@ export const Provider = ({ children }: IProvider) => {
       .patch(`/announcements/${announcementId}`, newData)
       .then((res) => {
         toast.success("Anúncio atualizado");
-        retrieveAnnouncer(user?.id!)
+        retrieveAnnouncer(user?.id!);
         setShowEditAnnouncementModal(false);
       })
       .catch((error) => toast.error(`${error.response.data.message}`));
@@ -122,7 +122,7 @@ export const Provider = ({ children }: IProvider) => {
       .delete(`/announcements/${id}`)
       .then((res) => {
         toast.success("Anúncio exclúido");
-        retrieveAnnouncer(user?.id!)
+        retrieveAnnouncer(user?.id!);
         setTimeout(() => setShowModalDeleteAnnouncement(false), 2000);
       })
       .catch((error) => toast.error(`${error.response.data.message}`));
@@ -140,9 +140,9 @@ export const Provider = ({ children }: IProvider) => {
   const retrieveAnnouncer = (id: string) => {
     api
       .get(`/users/${id}`)
-      .then((res) =>{
-         setAnnouncer(res.data)
-        } ) 
+      .then((res) => {
+        setAnnouncer(res.data);
+      })
       .catch((error) => toast.error(`${error.response.data.message}`));
   };
 
@@ -173,7 +173,7 @@ export const Provider = ({ children }: IProvider) => {
       .patch(`/users`, data)
       .then((response) => {
         toast.success("Dados editados com sucesso!");
-        setUser(response.data)
+        setUser(response.data);
         setModalProfile(false);
         setModalAddress(false);
       })
@@ -189,11 +189,13 @@ export const Provider = ({ children }: IProvider) => {
       .patch(`/comments/${id}`, newData)
       .then((res) => {
         toast.success("Comentário atualizado");
-        console.log(res.data.announcement)
+        console.log(res.data.announcement);
         retrieveAnnouncement(res.data.announcement);
       })
-      .catch((error) => {toast.error(`${error.response.data.message}`)
-      console.log(error, newData)});
+      .catch((error) => {
+        toast.error(`${error.response.data.message}`);
+        console.log(error, newData);
+      });
   };
 
   const deleteUser = () => {
@@ -220,7 +222,7 @@ export const Provider = ({ children }: IProvider) => {
       .delete(`/comments/${id}`)
       .then((res) => {
         toast.success("Comentário excluído");
-        console.log(res)
+        console.log(res);
         retrieveAnnouncement(announcementId);
       })
       .catch((error) => toast.error(`${error.response.data.message}`));
