@@ -99,7 +99,7 @@ export const Provider = ({ children }: IProvider) => {
 
     let gallery = [];
 
-    data.photos_gallery.map((value: string) => gallery.push(value));
+    data.photos_gallery?.map((value: string) => gallery.push(value));
 
     gallery.unshift(data.first_photo_gallery);
 
@@ -128,7 +128,7 @@ export const Provider = ({ children }: IProvider) => {
       .catch((error) => toast.error(`${error.response.data.message}`));
   };
 
-  const checkCep = async (e: any) => {
+  const checkCep = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const cep = e.target.value.replace(/\D/g, "");
     fetch(`viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())

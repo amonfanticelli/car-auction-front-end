@@ -22,9 +22,8 @@ export interface IContext {
   setAnnouncements: React.Dispatch<React.SetStateAction<IAnnouncement[]>>;
   getAllAnnouncements: () => Promise<void>;
   createAnnouncement: (data: IFormCreateAnnouncement) => void;
-  updateAnnouncement:
-    | ((data: IFormUpdateAnnouncement, id: string) => void)
-    | any;
+  updateAnnouncement: (data: IFormUpdateAnnouncement, id: string) => void;
+
   deleteAnnouncement: (id: string) => void;
   checkCep: (e: React.ChangeEvent<HTMLInputElement>) => void;
   announcementId: string;
@@ -54,8 +53,8 @@ export interface IContext {
 export interface IAuthContext {
   handleRegister: (data: ICreateUser) => void;
   user: IUser | null;
-  setUser: any;
-  setLoading: any;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   loading: boolean;
 }
 
@@ -111,7 +110,7 @@ export interface IAnnouncementResponse {
   image: string;
   is_active: boolean;
   user: IUser;
-  gallery?: any[];
+  gallery?: string[];
 }
 
 export interface ICreateUser {
@@ -148,7 +147,7 @@ export interface IAnnouncer {
   number: number;
   complement?: string;
   is_announcer: boolean;
-  announcements: any;
+  announcements: IAnnouncement;
 }
 
 export interface IComment {

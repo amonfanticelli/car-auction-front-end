@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { IAnnouncementResponse } from "../../interfaces/context";
 import { Container, NameIcon, SpanInfo } from "./style";
+import { IAnnouncement } from "../../interfaces/context";
 
 export interface IProps {
   item: IAnnouncementResponse;
@@ -15,7 +16,7 @@ function generateColor() {
   return color;
 }
 
-export const CardHome = ({ item }: any) => {
+export const CardHome = ({ item }: { item: IAnnouncement }) => {
   return (
     <Container>
       <Link to={`/announcement/${item.id}`}>
@@ -36,7 +37,7 @@ export const CardHome = ({ item }: any) => {
           >
             {item.user.name
               .split(" ")
-              .map((name: any, index: number) =>
+              .map((name, index) =>
                 index <= 1 ? name[0].toUpperCase() : undefined
               )}
           </NameIcon>

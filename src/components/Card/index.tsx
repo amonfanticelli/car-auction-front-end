@@ -23,7 +23,7 @@ function generateColor() {
   return color;
 }
 
-export const Card = ({ item }: any) => {
+export const Card = ({ item }: { item: IAnnouncement }) => {
   const { setAnnouncementId, setShowEditAnnouncementModal, announcer } =
     useContext(Context);
 
@@ -96,7 +96,7 @@ export const Card = ({ item }: any) => {
             background_hover="#5126EA"
             background="#FFFFF"
             children="Editar"
-            onClick={(event: any) => {
+            onClick={(event) => {
               setAnnouncementId(event.currentTarget.id);
               setShowEditAnnouncementModal(true);
             }}

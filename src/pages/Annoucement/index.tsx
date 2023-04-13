@@ -42,7 +42,7 @@ export const Annoucement = () => {
   const [modalImageCar, setModalImageCar] = useState(false);
   const [imageRender, setImageRender] = useState("");
 
-  const textAreaRef = useRef<any>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const { user } = useContext(AuthContext);
 
@@ -205,10 +205,10 @@ export const Annoucement = () => {
               ></textarea>
               <button
                 onClick={() => {
-                  if (textAreaRef.current.value == "") {
+                  if (textAreaRef.current!.value == "") {
                     toast.error("Digite um comentário!");
                   } else {
-                    createComment(textAreaRef.current.value, params.id!);
+                    createComment(textAreaRef.current!.value, params.id!);
                   }
                 }}
               >
@@ -217,21 +217,21 @@ export const Annoucement = () => {
               <div className="comments-fixed">
                 <CommentsFixed
                   onClick={() => {
-                    textAreaRef.current.value = "Gostei muito!";
+                    textAreaRef.current!.value = "Gostei muito!";
                   }}
                 >
                   Gostei muito!
                 </CommentsFixed>
                 <CommentsFixed
                   onClick={() => {
-                    textAreaRef.current.value = "Incrível";
+                    textAreaRef.current!.value = "Incrível";
                   }}
                 >
                   Incrível
                 </CommentsFixed>
                 <CommentsFixed
                   onClick={() => {
-                    textAreaRef.current.value =
+                    textAreaRef.current!.value =
                       "Recomendarei para meus amigos!";
                   }}
                 >
@@ -251,21 +251,21 @@ export const Annoucement = () => {
               <div className="comments-fixed">
                 <CommentsFixed
                   onClick={() => {
-                    textAreaRef.current.value = "Gostei muito!";
+                    textAreaRef.current!.value = "Gostei muito!";
                   }}
                 >
                   Gostei muito!
                 </CommentsFixed>
                 <CommentsFixed
                   onClick={() => {
-                    textAreaRef.current.value = "Incrível";
+                    textAreaRef.current!.value = "Incrível";
                   }}
                 >
                   Incrível
                 </CommentsFixed>
                 <CommentsFixed
                   onClick={() => {
-                    textAreaRef.current.value =
+                    textAreaRef.current!.value =
                       "Recomendarei para meus amigos!";
                   }}
                 >

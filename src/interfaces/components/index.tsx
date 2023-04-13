@@ -1,6 +1,6 @@
 import { IGallery } from "../context";
 
-export interface IButton {
+export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   id?: string;
   color: string;
@@ -13,7 +13,6 @@ export interface IButton {
   width?: string;
   height?: string;
   lower_width?: string;
-  onClick?: any;
 }
 
 export interface IButtonStyleProps {
@@ -39,7 +38,7 @@ export interface IFormCreateAnnouncement {
   type_vehicle: string;
   image: string;
   first_photo_gallery: string;
-  photos_gallery: any;
+  photos_gallery: [];
 }
 
 export interface IFormUpdateAnnouncement {
@@ -52,7 +51,7 @@ export interface IFormUpdateAnnouncement {
   is_active?: string;
   image?: string;
   first_photo_gallery?: string;
-  photos_gallery?: any;
+  photos_gallery?: [];
 }
 
 export interface ILoginRequest {

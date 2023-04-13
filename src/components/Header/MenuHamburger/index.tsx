@@ -1,11 +1,18 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { IMenuBurgerProps } from "..";
 import { AuthContext } from "../../../context/AuthContext";
 import { Button } from "../../Button";
 import { IconUser, NavLink } from "./style";
 import { MenuDropDown, StyledBurger } from "./style";
 import { Context } from "../../../context/Context";
+
+interface IMenuBurgerProps {
+  isOpen: boolean;
+  setIsOpen: (prev: boolean) => void;
+  handleToggle: () => void;
+  refMenu: React.RefObject<HTMLDivElement> | null;
+  quitAccount: () => void;
+}
 
 const Burger = ({
   isOpen,

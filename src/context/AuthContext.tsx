@@ -17,13 +17,8 @@ export const Provider = ({ children }: IProvider) => {
   const navigate = useNavigate();
 
   const handleRegister = async (data: ICreateUser) => {
-    const announcer = data.is_announcer === "Anunciante" ? true : false;
-    const newData = { ...data, is_announcer: announcer };
-    console.log(data);
-
-    console.log(newData);
     await api
-      .post("users", newData)
+      .post("users", data)
       .then((response) => {
         toast.success("Conta criada com sucesso!");
         return navigate("/login");

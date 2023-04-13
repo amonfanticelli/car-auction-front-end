@@ -35,11 +35,11 @@ export const ModalForgetPassword = ({
   };
 
   useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
       if (
         isOpenModal &&
         modalRef.current &&
-        !modalRef.current.contains(e.target)
+        !modalRef.current.contains(e.target as Node)
       ) {
         setIsOpenModal(false);
       }

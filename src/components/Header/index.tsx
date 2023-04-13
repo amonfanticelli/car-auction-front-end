@@ -16,16 +16,8 @@ import { Context } from "../../context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
-export interface IMenuBurgerProps {
-  isOpen: boolean;
-  setIsOpen: (prev: boolean) => void;
-  handleToggle: () => void;
-  refMenu: any;
-  quitAccount: () => void;
-}
-
 export const Header = () => {
-  const inputRef = createRef<HTMLInputElement>();
+  const inputRef = createRef<HTMLDivElement>();
 
   const { user, setUser } = useContext(AuthContext);
   const { isModalProfileOpen, setModalProfile } = useContext(Context);
@@ -71,18 +63,18 @@ export const Header = () => {
   }
 
   useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
       if (
         isOpenMenuUser &&
         inputRef.current &&
-        !inputRef.current.contains(e.target)
+        !inputRef.current.contains(e.target as Node)
       ) {
         setIsOpenMenuUser(false);
       }
       if (
         isOpenHamburgerMenu &&
         inputRef.current &&
-        !inputRef.current.contains(e.target)
+        !inputRef.current.contains(e.target as Node)
       ) {
         setIsOpenHamburgerMenu(false);
       }
