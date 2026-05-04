@@ -31,10 +31,6 @@ This is a full-stack project. The backend must be running before starting the fr
 
 1. Clone the repository and create your `.env` file:
 
-```bash
-cp .env.example .env
-```
-
 2. Fill in the `.env` variables:
 
 ```dotenv
