@@ -2,6 +2,10 @@
 
 A front-end platform for buying and selling cars and motorcycles, built as the client interface for the [Car Auction API](https://github.com/amonfanticelli/car-auction-back-end).
 
+![Home](./src/assets/auction-home.jpg)
+![Listings](./src/assets/auction-cars.jpg)
+![Car Profile](./src/assets/car-auction-car-profile.jpg)
+
 ## Technologies
 
 - React
