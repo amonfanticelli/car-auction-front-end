@@ -1,33 +1,53 @@
-# Projeto Final M6 - FrontEnd
+# Car Auction
 
-# Descrição do projeto:
+A front-end platform for buying and selling cars and motorcycles, built as the client interface for the [Car Auction API](https://github.com/amonfanticelli/car-auction-back-end).
 
-O projeto é uma plataforma de divulgação de anúncios de vendas de carros e motos. O objetivo do projeto é facilitar a busca de usuários por veículos à venda e garantir uma interação entre vendedor e comprador com praticidade. Ao registrar-se na plataforma o usuário pdoerá anunciar veículos ou procurar algum que seja do seu interesse.
+## Technologies
 
-## Tecnologias/ferramentas utilizadas na aplicação:
-
-- ReactJS
+- React
 - TypeScript
-- styled-components
-- axios
-- react-hook-form
-- react-icons
-- react-router-dom
-- uuid
-- yup
+- Styled Components
+- Axios
+- React Hook Form
+- Yup
+- React Router DOM
+- UUID
 
-## Antes de iniciar a aplicação, rode o seguinte comando para instalar as dependências:
+## Features
 
-`yarn` ou `yarn install`
+- User registration as buyer or announcer
+- Vehicle listing with image gallery
+- Search and filter announcements
+- Announcer profile page
+- Protected routes via JWT token
 
-## Para inicializar a aplicação localmente, execute:
+## Getting Started
 
-`yarn dev`
+This is a full-stack project. The backend must be running before starting the frontend. See the [Car Auction API repository](https://github.com/amonfanticelli/car-auction-back-end) for setup instructions.
 
-# Integrantes da equipe que construíram a aplicação:
+1. Clone the repository and create your `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+2. Fill in the `.env` variables:
+
+```dotenv
+VITE_API_URL=http://localhost:3000
+```
+
+3. Install dependencies and start the application:
+
+```bash
+yarn install
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+## Team
 
 - Amon Fanticelli Moreira Rangel
 - Filipe Judiss Albuquerque
 - Lucas Vale
-
-# Por ser um projeto FullStack é necessário estar com ambas as aplicações rodando. Esse é o link do repositório do BackEnd: https://github.com/amonfanticelli/car-auction-back-end
